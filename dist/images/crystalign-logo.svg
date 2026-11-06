@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 603 603" role="img" aria-labelledby="title desc">
+<title id="title">CRYSTALIGN Clear Aligners</title><desc id="desc">A curved blue smile enclosing outlined teeth, with the words CRYSTALIGN, CLEAR ALIGNERS, and A clearer path to your best smile.</desc>
+<defs><linearGradient id="blue" x1="0" x2="1" y1="1" y2="0"><stop stop-color="#1264a4"/><stop offset=".56" stop-color="#30a5d2"/><stop offset="1" stop-color="#70c9e1"/></linearGradient><linearGradient id="tooth" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fafdff"/><stop offset="1" stop-color="#deeff5"/></linearGradient></defs>
+<path d="M416 76C363 29 282 33 220 62 151 94 102 149 87 218c-8 39-3 70 10 94-2-37 10-83 33-122 42-69 122-123 204-138 28-5 56-3 82 6Z" fill="url(#blue)"/>
+<path d="M418 76C365 67 311 74 264 96c-45 21-86 54-111 91-22 33-34 68-34 100 0 47 25 83 69 105 50 26 118 25 184-3 23-10 46-24 65-40-20 37-57 65-103 81-74 25-157 14-211-28-33-26-51-62-51-104 0-53 25-107 68-151 43-45 103-79 161-91 62-13 121-4 166 20Z" fill="url(#blue)"/>
+<path d="M186 169c34-44 88-77 145-89 30-6 58-6 82 1-53 2-106 20-146 50-29 22-52 50-66 80-14 31-19 62-12 90-23-35-25-88-3-132Z" fill="#fff"/>
+<path d="M149 278c4 51 34 88 84 108 51 21 117 18 176-8 20-9 39-20 55-33-18 29-49 54-88 70-64 26-138 22-188-10-35-23-55-58-57-98 0-10 1-20 3-29Z" fill="none" stroke="#164d7d" stroke-width="4" stroke-linecap="round"/>
+<path d="M185 202c6 3 12 10 15 19 3-9 8-14 15-14 7 0 12 7 14 17 3-10 9-15 16-15 8 0 13 7 15 18 4-10 10-15 18-14 9 0 14 8 16 20 4-11 10-16 19-15 10 1 15 10 16 22 5-11 11-17 20-16 10 1 15 11 14 23 6-10 13-15 22-13 9 3 12 12 9 23 7-9 14-13 22-10 9 4 9 14 5 25 8-7 15-10 21-5 7 5 5 14 0 23-9 16-27 32-51 44-31 16-69 25-108 25-34 0-67-7-93-21-19-10-34-22-43-36-7-11-11-24-9-34 2-10 9-15 19-14Z" fill="url(#tooth)" stroke="#72b8d5" stroke-width="3.2" stroke-linejoin="round"/>
+<path d="M206 213c-4 10-3 26 1 39m22-27c-5 11-4 29 0 43m26-40c-5 12-4 31 0 46m28-42c-5 13-4 32 0 47m29-43c-5 13-4 31 0 45m29-43c-4 12-3 29 0 41m27-40c-3 10-1 25 1 35m24-34c-2 8-1 20 1 27m22-26c-1 6 0 14 1 19" fill="none" stroke="#9dcfe1" stroke-width="2" stroke-linecap="round"/>
+<text x="301.5" y="424" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="65" letter-spacing="4" fill="#0e2f57">CRYSTALIGN</text>
+<path d="M37 454h64m403 0h63" stroke="#687a8c" stroke-width="1.7"/>
+<text x="301.5" y="465" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" letter-spacing="9" fill="#73818c">CLEAR ALIGNERS</text>
+<text x="301.5" y="516" text-anchor="middle" font-family="Arial,sans-serif" font-style="italic" font-size="27" letter-spacing=".7" fill="#72a9c0">A clearer path to your best smile</text>
+<path d="M3 598h597" stroke="#17466e" stroke-width="5"/>
+</svg>
