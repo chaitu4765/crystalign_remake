@@ -136,46 +136,8 @@ function Header() {
 }
 
 function FooterCta() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    let frame = 0;
-    const updatePosition = () => {
-      window.cancelAnimationFrame(frame);
-      frame = window.requestAnimationFrame(() => {
-        const bounds = section.getBoundingClientRect();
-        const progress = Math.min(
-          1,
-          Math.max(
-            0,
-            (window.innerHeight - bounds.top) /
-              (window.innerHeight + bounds.height),
-          ),
-        );
-        section.style.setProperty(
-          "--cta-parallax-y",
-          (progress - 0.5) * 42 + "px",
-        );
-      });
-    };
-
-    updatePosition();
-    window.addEventListener("scroll", updatePosition, { passive: true });
-    window.addEventListener("resize", updatePosition);
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", updatePosition);
-      window.removeEventListener("resize", updatePosition);
-    };
-  }, []);
-
   return (
-    <section className="footer-cta" ref={sectionRef}>
+    <section className="footer-cta">
       <div className="wrap footer-cta-inner">
         <div>
           <span className="eyebrow">make your life more precious</span>
@@ -279,7 +241,7 @@ function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="home-main">
         <section className="hero">
           <div className="hero-orb orb-one" />
           <FlowBackground />
@@ -302,8 +264,11 @@ function HomePage() {
             <div className="hero-visual">
               <img
                 className="hero-person"
-                src={image("how_do_aligners__1_-removebg-preview.png")}
-                alt="Clear aligners in their case"
+                src={image("hero-woman-aligner.png")}
+                alt="Smiling woman holding a clear dental aligner"
+                width={1145}
+                height={1374}
+                fetchPriority="high"
               />
               <div className="hero-decoration" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 3v10m0 22v10M3 24h10m22 0h10M8.5 8.5l7 7m17 17 7 7m0-31-7 7m-17 17-7 7" /></svg></div>
             </div>
@@ -367,7 +332,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="section steps-section">
+        <section id="steps" className="section steps-section">
           <div className="wrap">
             <SectionHeading eyebrow="How It Works">
               6 Simple Steps To Your <em>Perfect Smile</em>
@@ -415,7 +380,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="section results-section">
+        <section id="results" className="section results-section">
           <div className="wrap">
             <SectionHeading eyebrow="Real People, Real Smiles">
               Before &amp; After Results With {brand}
@@ -433,7 +398,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section className="section why-section">
+        <section id="why" className="section why-section">
           <div className="wrap why-grid">
             <div className="why-copy">
               <span className="eyebrow">Why Choose {brand}</span>
@@ -489,19 +454,11 @@ function HomePage() {
             </SectionHeading>
             <div className="expo-gallery">
               {[
-                "crowding_teeth-removebg-preview.png",
-                "teeth_spacing-removebg-preview.png",
-                "Open_Bite-removebg-preview.png",
-                "aligner.png",
-                "dental.png",
-                "orthopantomogram.png",
-                "dental-x-ray.png",
-              ].map((file, index) => index >= 3 ? (
-                <div className="expo-icon-tile" key={file}>
-                  <img className="icon-tile" src={image(file)} alt="Dental aligner care" />
-                </div>
-              ) : (
-                <img src={image(file)} alt="Dental aligner care" key={file} />
+                ["crowding_teeth-removebg-preview.png", "Crowded teeth"],
+                ["teeth_spacing-removebg-preview.png", "Teeth spacing"],
+                ["Open_Bite-removebg-preview.png", "Open bite"],
+              ].map(([file, description]) => (
+                <img src={image(file)} alt={description} key={file} />
               ))}
             </div>
           </div>

@@ -83,7 +83,7 @@ h2{font-size:clamp(30px,3vw,42px);line-height:1.13;letter-spacing:-.035em}
 .results-grid img{height:auto;max-height:245px;aspect-ratio:1.5;object-fit:cover;border-radius:3px;box-shadow:0 4px 10px rgba(13,49,88,.15)}
 .slider-dots{text-align:center;color:var(--navy);font-size:12px;margin-top:13px}
 .why-section{padding:76px 0;background:white}
-.why-grid{grid-template-columns:1fr 1fr;gap:55px}
+.why-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
 .why-copy>.eyebrow{font-size:10px}
 .why-copy h2{font-size:37px;max-width:440px}
 .why-item{gap:12px;margin:16px 0}
@@ -225,16 +225,16 @@ h2{font-size:clamp(30px,3vw,42px);line-height:1.13;letter-spacing:-.035em}
 .about-detail span{min-width:0;white-space:normal}
 .expo-gallery img.icon-tile{background:#e5f2f6}
 @media(prefers-reduced-motion:reduce){.gateway-flow{opacity:.58}}
-/* Scroll-parallax aligner image above the site footer */
-.footer-cta{position:relative;isolation:isolate;overflow:hidden;min-height:320px;padding:0;background:#eaf6f9}
-.footer-cta::before{content:"";position:absolute;z-index:-2;inset:-34px 0;background-image:url("/images/footer-aligner-bg.png");background-position:left center;background-repeat:no-repeat;background-size:cover;transform:translate3d(0,var(--cta-parallax-y,0px),0) scale(1.06);will-change:transform}
+/* The moving section clips a stationary viewport background, revealing it on scroll. */
+.footer-cta{position:relative;isolation:isolate;clip-path:inset(0);min-height:400px;padding:0;background:#eaf6f9}
+.footer-cta::before{content:"";position:fixed;z-index:-2;inset:0;background:#eaf6f9 url("/images/footer-aligner-bg.png") left center/cover no-repeat;pointer-events:none}
 .footer-cta::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(234,246,249,.03) 0%,rgba(234,246,249,.12) 38%,rgba(234,246,249,.82) 62%,rgba(234,246,249,.96) 100%);pointer-events:none}
-.footer-cta-inner{min-height:320px;display:flex;align-items:center;justify-content:flex-end;padding-top:36px;padding-bottom:36px}
+.footer-cta-inner{min-height:400px;display:flex;align-items:center;justify-content:flex-end;padding-block:48px}
 .footer-cta-inner>div{width:min(56%,650px);text-align:right}
-.footer-cta h2{color:var(--navy);font-size:clamp(30px,3.5vw,48px);margin:9px 0 15px}
-.footer-cta p{max-width:520px;margin:0 0 0 auto;color:#304653;font-size:14px;line-height:1.65}
-@media(max-width:760px){.footer-cta{min-height:300px}.footer-cta::before{inset:-18px 0;background-position:20% center;opacity:.45}.footer-cta::after{background:linear-gradient(0deg,rgba(234,246,249,.98) 0%,rgba(234,246,249,.86) 59%,rgba(234,246,249,.20) 100%)}.footer-cta-inner{min-height:300px;justify-content:center;padding:35px 0}.footer-cta-inner>div{width:100%;text-align:center}.footer-cta h2{font-size:28px}.footer-cta p{margin:0 auto;font-size:12px}}
-@media(prefers-reduced-motion:reduce){.footer-cta::before{will-change:auto}}
+.footer-cta h2{color:var(--navy);font-size:clamp(30px,3.5vw,48px);margin:9px 0 20px}
+.footer-cta p{max-width:520px;margin:0 0 0 auto;color:#304653;font-size:16px;line-height:1.65}
+@media(max-width:760px){.footer-cta,.footer-cta-inner{min-height:360px}.footer-cta::before{background-position:30% center;opacity:.45}.footer-cta::after{background:linear-gradient(0deg,rgba(234,246,249,.98),rgba(234,246,249,.7))}.footer-cta-inner{justify-content:center;padding-block:40px}.footer-cta-inner>div{width:100%;text-align:center}.footer-cta h2{font-size:32px}.footer-cta p{margin:0 auto;font-size:16px}}
+@media(prefers-reduced-motion:reduce){.footer-cta::before{position:absolute}}
 /* Floating dental banner shared by inner pages */
 .floating-banner{position:relative;isolation:isolate;min-height:360px;display:flex;align-items:center;overflow:hidden;padding:70px 0;background:linear-gradient(112deg,#f0f9fb 0%,#e7f4f7 54%,#dff0f4 100%)}
 .banner-content{position:relative;z-index:3;text-align:center}
@@ -265,3 +265,61 @@ h2{font-size:clamp(30px,3vw,42px);line-height:1.13;letter-spacing:-.035em}
 .social-dots span{width:22px;height:22px;display:grid;place-items:center;background:#fff;color:var(--navy);border-radius:50%;font-size:9px;font-weight:700}
 @media(max-width:760px){.expo-icon-tile{height:115px}.expo-gallery img.icon-tile{width:70px;height:70px}.floating-banner{min-height:285px;padding:47px 0}.floating-banner h1{font-size:40px;max-width:75%}.banner-floats img{opacity:.72}.banner-floats .banner-tooth{right:4%;left:auto;top:5%;bottom:auto;width:40px;height:40px}.banner-floats .banner-aligner{right:3%;left:auto;top:auto;bottom:5%;width:42px;height:42px}.banner-floats .banner-scan{right:auto;left:4%;top:auto;bottom:5%;width:38px;height:38px}.banner-floats .banner-xray{right:auto;left:3%;top:5%;bottom:auto;width:38px;height:38px}.banner-floats .banner-smile,.banner-floats .banner-left-xray,.banner-floats .banner-left-tooth,.banner-floats .banner-left-aligner{display:none}.banner-swirl{width:70vw}.banner-swirl-two{width:75vw}}
 @media(prefers-reduced-motion:reduce){.banner-floats img{animation:none}}
+
+/* Readable benefits in a balanced copy / product grid. */
+.why-copy h2{font-size:clamp(36px,3.4vw,52px);max-width:580px}
+.why-copy>.eyebrow{font-size:12px}
+.why-item{gap:16px;margin:26px 0}
+.why-item>span{width:32px;height:32px}
+.why-item>span svg{width:20px;height:20px}
+.why-item h3{font-size:clamp(19px,1.6vw,23px);line-height:1.35}
+.why-item p{font-size:16px;line-height:1.7;margin:8px 0 0;color:#425c70}
+.why-metrics{gap:22px;margin-top:28px;flex-wrap:wrap}
+.why-metrics strong{font-size:34px}
+.why-metrics small{font-size:13px}
+.why-metrics p{font-size:14px;max-width:240px}
+.why-visual{min-height:460px}
+.why-visual>img{height:400px;width:85%;right:0}
+.metric-bubble{width:120px;height:120px;left:0}
+.metric-bubble strong{font-size:28px}
+.metric-bubble span{font-size:12px}
+.expo-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,64px)}
+.expo-gallery img,.expo-gallery img:first-child{width:100%;height:220px;object-fit:contain;background:transparent;padding:0;border:0;border-radius:0;box-shadow:none}
+@media(max-width:760px){.why-grid{grid-template-columns:minmax(0,1fr)}.why-visual{min-height:340px}.why-visual>img{height:320px}.expo-gallery{grid-template-columns:1fr;gap:28px}.expo-gallery img,.expo-gallery img:first-child{height:180px}}
+
+/* Home: human-led imagery, readable content and a consistent section rhythm. */
+.home-main{--home-body:16px}
+.home-main .hero{padding-top:24px}
+.home-main .hero-grid{grid-template-columns:1.08fr 1fr;min-height:570px;gap:32px;align-items:center}
+.home-main .hero-copy{max-width:620px;padding:32px 0 65px}
+.home-main .hero-copy h1{font-size:clamp(44px,4.8vw,70px);line-height:1.08;letter-spacing:-.04em;text-wrap:balance}
+.home-main .hero-copy>p{font-size:18px;line-height:1.75;max-width:530px;margin-bottom:24px}
+.home-main .hero-visual{height:570px;align-self:end;align-items:flex-end}
+.home-main .hero-person{height:100%;width:100%;max-width:560px;object-fit:contain;object-position:center bottom;background:transparent;border:0;border-radius:0;padding:0;filter:none}
+.home-main .hero-decoration{display:none}
+.home-main .hero .eyebrow{background:transparent;padding:0;font-size:12px;letter-spacing:.12em}
+.home-main .button{padding:16px 24px;font-size:15px}
+.home-main .text-link{font-size:14px;min-height:44px;align-items:center}
+.home-main .benefit-strip{margin-top:0;gap:16px}
+.home-main .benefit{min-height:112px;padding:20px;grid-template-columns:36px 1fr}
+.home-main .benefit b{font-size:14px;line-height:1.5}
+.home-main .benefit small{display:none}
+.home-main .section{padding-block:88px;scroll-margin-top:110px}
+.home-main .section-heading{margin-bottom:40px}
+.home-main .section-heading h2{font-size:clamp(30px,3vw,44px);text-wrap:balance}
+.home-main .section-copy>p,.home-main .case-content p{font-size:var(--home-body);line-height:1.8}
+.home-main .quality-points h4{font-size:15px;line-height:1.5}
+.home-main .checks{font-size:14px;line-height:1.6;gap:12px 20px}
+.home-main .stats-row small{font-size:12px}
+.home-main .step-card{padding:28px!important;min-height:290px}
+.home-main .step-card h3{font-size:22px;margin-block:14px 10px}
+.home-main .step-card p{font-size:15px;line-height:1.7}
+.home-main .step-label{font-size:12px}
+.home-main .case-tabs button{min-width:120px;height:108px;border-radius:6px}
+.home-main .case-tabs button span{font-size:11px}
+.home-main .product-card{padding:30px!important}
+.home-main .product-card h3{font-size:22px;overflow-wrap:anywhere}
+.home-main .product-card p{font-size:15px;line-height:1.75;max-width:32ch}
+.home-main a:focus-visible,.home-main button:focus-visible{outline:3px solid #1689b8;outline-offset:5px}
+@media(min-width:761px) and (max-width:1100px){.home-main .hero-grid{gap:20px;min-height:480px}.home-main .hero-visual{height:480px}.home-main .hero-copy h1{font-size:48px}.home-main .hero-copy>p{font-size:16px}.home-main .benefit-strip{grid-template-columns:repeat(2,1fr)}.home-main .checks{grid-template-columns:1fr}.home-main .step-card{padding:22px!important}}
+@media(max-width:760px){.home-main .hero-grid{grid-template-columns:minmax(0,1fr);gap:16px;min-height:0}.home-main .hero-copy{padding:20px 0 0;max-width:560px}.home-main .hero-copy h1{font-size:clamp(40px,9vw,58px)}.home-main .hero-copy>p{font-size:16px}.home-main .hero-visual{height:390px;width:100%;max-width:470px;margin-inline:auto}.home-main .hero-person{height:100%;width:100%}.home-main .hero-copy .text-link{margin-left:16px}.home-main .button{padding:13px 17px;font-size:14px}.home-main .benefit-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.home-main .benefit{grid-template-columns:1fr;gap:10px;padding:18px;min-height:144px}.home-main .benefit b{font-size:13px}.home-main .section{padding-block:60px}.home-main .about-grid{gap:36px}.home-main .checks{grid-template-columns:1fr}.home-main .quality-points{flex-wrap:wrap}.home-main .steps-grid{grid-template-columns:1fr}.home-main .step-card{min-height:0}.home-main .case-tabs{display:flex;flex-wrap:wrap;gap:8px}.home-main .case-tabs button{min-width:0;width:calc((100% - 16px)/3);height:100px}.home-main .case-content{padding:20px 0}.home-main .section-heading{margin-bottom:30px}}

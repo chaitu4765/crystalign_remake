@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -30,14 +30,12 @@ export const TextHoverEffect = ({
     }
   }, [cursor]);
 
-  const viewBoxWidth = Math.max(300, text.length * 44);
-
   return (
     <svg
       ref={svgRef}
       width="100%"
       height="100%"
-      viewBox={`0 0 ${viewBoxWidth} 100`}
+      viewBox="0 0 300 100"
       xmlns="http://www.w3.org/2000/svg"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -143,4 +141,3 @@ export const FooterBackgroundGradient = () => {
     />
   );
 };
-
