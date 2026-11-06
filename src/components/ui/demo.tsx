@@ -3,10 +3,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Facebook,
-  Instagram,
-  Twitter,
-  Dribbble,
   Globe,
 } from "lucide-react";
 import { FooterBackgroundGradient, TextHoverEffect } from "@/components/ui/hover-footer";
@@ -58,11 +54,38 @@ export function HoverFooter() {
 
   // Social media icons
   const socialLinks = [
-    { icon: <Facebook size={20} />, label: "Facebook", href: "#" },
-    { icon: <Instagram size={20} />, label: "Instagram", href: "#" },
-    { icon: <Twitter size={20} />, label: "Twitter", href: "#" },
-    { icon: <Dribbble size={20} />, label: "Dribbble", href: "#" },
-    { icon: <Globe size={20} />, label: "Globe", href: "#" },
+    {
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z" />
+        </svg>
+      ),
+      label: "Facebook",
+      href: "#",
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      label: "Twitter",
+      href: "#",
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 0 1 1.93 5.312c-.407-.083-2.268-.444-4.435-.125-.09-.204-.182-.409-.281-.613-.377-.775-.805-1.547-1.28-2.298 2.37-1.045 3.73-2.072 4.066-2.276zm-5.61-2.42c.86 1.134 1.636 2.457 2.29 3.914-1.927.766-4.382 1.353-7.223 1.542.92-2.158 2.766-3.87 4.933-5.456zm-6.953 2.593c.184.225.38.45.589.675 2.776-.176 5.213-.746 7.075-1.492-.61-1.359-1.332-2.589-2.13-3.64-2.525.962-4.48 2.658-5.534 4.457zm-1.895 5.217c0-.284.02-.564.056-.84.22.062 2.68.741 4.793.18.204.444.398.892.58 1.341-3.654 1.136-5.187 3.513-5.32 3.73-.07-.768-.109-1.583-.109-2.411zm2.342 5.097c.23-.339 1.706-2.383 5.174-3.418.968 2.613 1.488 5.372 1.611 6.541-2.909 1.11-6.177-.07-6.785-3.123zm8.396 2.71c-.139-1.12-.646-3.77-1.573-6.289 1.986-.33 3.696.002 4.072.083-.497 2.762-2.302 5.068-4.707 6.206z" />
+        </svg>
+      ),
+      label: "Dribbble",
+      href: "#",
+    },
+    {
+      icon: <Globe size={20} />,
+      label: "Globe",
+      href: "#",
+    },
   ];
 
   return (
