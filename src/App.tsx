@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import FlowBackground from "./components/FlowBackground";
 import { TiltCard } from "./components/ui/TiltCard";
+import HoverFooter from "@/components/ui/demo";
 import "./styles.css";
 
 type SiteCase = {
@@ -193,41 +194,7 @@ function Footer() {
   return (
     <>
       <FooterCta />
-        <footer className="site-footer" id="footer">
-        <div className="wrap footer-grid">
-          <div className="footer-brand">
-            <a href="/">
-              <img src={image("crystalign-logo.svg")} alt="CRYSTALIGN CLEAR ALIGNERS" />
-            </a>
-            <p>Craft the Smile you deserve with {brand}.</p>
-          </div>
-          <div>
-            <h3>Useful links</h3>
-            <a href="/">Home</a>
-            <a href="/about-us/">About Us</a>
-            <a href="/treatable-cases/">Treatable Cases</a>
-            <a href="/contact-us/">Contact Us</a>
-          </div>
-          <div>
-            <h3>Contact Us</h3>
-            <span>{demoContact.email}</span>
-            <span>{demoContact.phone}</span>
-            <p>{demoContact.address}</p>
-          </div>
-          <div>
-            <h3>Follow Us On</h3>
-            <div className="social-dots" aria-label="Social media links">
-              <span aria-label="Facebook">f</span>
-              <span aria-label="Instagram">◎</span>
-              <span aria-label="YouTube">▶</span>
-              <span aria-label="LinkedIn">in</span>
-            </div>
-          </div>
-        </div>
-        <div className="wrap copyright">
-          Copyright © 2025 {brand}. All rights reserved. Developed by Zhar Tech
-        </div>
-      </footer>
+      <HoverFooter />
     </>
   );
 }
