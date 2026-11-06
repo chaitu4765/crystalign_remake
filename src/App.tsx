@@ -110,6 +110,33 @@ function image(name: string) {
 }
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    const closeOutside = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setMenuOpen(false);
+    };
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    document.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOutside);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      document.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOutside);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [menuOpen]);
+
   return (
     <>
       <div className="topline">
@@ -117,14 +144,28 @@ function Header() {
           <span>{demoContact.phone}</span>
         </div>
       </div>
-      <header className="site-header">
+      <header className="site-header" ref={headerRef}>
         <div className="wrap nav-row">
           <a className="logo-link" href="/" aria-label={brand + " home"}>
             <img src={image("crystalign-logo.svg")} alt="CRYSTALIGN CLEAR ALIGNERS" />
           </a>
-          <nav className="main-nav" aria-label="Main navigation">
+          <button
+            ref={menuButtonRef}
+            type="button"
+            className="menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="main-navigation"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span>{menuOpen ? "Close" : "Menu"}</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d={menuOpen ? "M6 6l12 12M18 6 6 18" : "M4 6h16M4 12h16M4 18h16"} />
+            </svg>
+          </button>
+          <nav id="main-navigation" className={`main-nav${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
             {siteNav.map((item) => (
-              <a href={item.href} key={item.label}>
+              <a href={item.href} key={item.label} onClick={() => setMenuOpen(false)}>
                 {item.label}
               </a>
             ))}

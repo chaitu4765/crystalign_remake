@@ -89,12 +89,12 @@ export function HoverFooter() {
   ];
 
   return (
-    <footer className="bg-[#092542] text-slate-300 relative h-fit rounded-3xl overflow-hidden m-4 md:m-8 shadow-2xl">
+    <footer className="responsive-footer bg-[#092542] text-slate-300 relative h-fit rounded-3xl overflow-hidden m-4 md:m-8 shadow-2xl">
       <div className="max-w-7xl mx-auto p-8 sm:p-14 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center space-x-3">
+            <div className="footer-brand-row flex items-center space-x-3">
               <a href="/" className="inline-block" aria-label="crystalign.aligners home">
                 <img
                   src="/images/crystalign-logo.svg"
